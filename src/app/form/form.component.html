@@ -1,0 +1,60 @@
+<h3>
+    Formulario basico
+</h3>
+
+<form>
+    <section>
+      <label for="name">Name</label>
+      <input name="name"
+             type="text"
+             [(ngModel)]="form.name"
+             placeholder="Contact name" />
+    </section>
+    <section>
+      <label for="isVIP">Is V.I.P.</label>
+      <input name="isVIP"
+             type="checkbox"
+             [(ngModel)]="form.isVIP">
+    </section>
+    <section>
+      <label for="gender">Gender</label>
+      <input name="gender"
+             value="male"
+             type="radio"
+             [(ngModel)]="form.gender"> <span>Male</span>
+      <input name="gender"
+             value="female"
+             type="radio"
+             [(ngModel)]="form.gender"> <span>Female</span>
+    </section>
+    <section>
+      <label for="workStatus">Work Status</label>
+      <select name="workStatus"
+              [(ngModel)]="form.workStatus"
+              (change)="onWorkStatusChanged()">
+        <option *ngFor="let status of workStatuses"
+                [value]="status.id">
+          <span>{{ status.description }}</span>
+        </option>
+      </select>
+    </section>
+    <section *ngIf="form.workStatus.toString()==='3'; else education">
+      <label for="companyName">Company Name</label>
+      <input name="companyName"
+             type="text"
+             [(ngModel)]="form.companyName"
+             placeholder="Company name" />
+    </section>
+    <ng-template #education>
+      <section>
+        <label for="education">Education</label>
+        <input name="education"
+               type="text"
+               [(ngModel)]="form.education"
+               placeholder="Education" />
+      </section>
+    </ng-template>
+    <input value="Save"
+           type="submit"
+           (click)="saveContact()" />
+  </form>
