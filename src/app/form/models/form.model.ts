@@ -1,9 +1,8 @@
 export interface Form {
     name: string;
-    isVIP: boolean;
-    gender: string;
-    workStatus: number | string;
-    companyName: string;
-    education: string;
+    description: string;
+    autor_id: number | string;
+    category_id: number | string;
+    ISBN: string;    
   }
   

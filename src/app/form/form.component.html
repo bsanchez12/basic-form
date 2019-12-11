@@ -1,60 +1,52 @@
 <h3>
-    Formulario basico
+    Formulario para Libros
 </h3>
 
 <form>
     <section>
-      <label for="name">Name</label>
+      <label for="name">Nombre</label>
       <input name="name"
              type="text"
              [(ngModel)]="form.name"
-             placeholder="Contact name" />
+             placeholder="Nombre libro" />
     </section>
     <section>
-      <label for="isVIP">Is V.I.P.</label>
-      <input name="isVIP"
-             type="checkbox"
-             [(ngModel)]="form.isVIP">
-    </section>
+      <label for="description">Descripción</label>
+      <textarea 
+             name="description"             
+             [(ngModel)]="form.description"
+             placeholder="Descripción libro" >
+      </textarea>
+    </section>    
     <section>
-      <label for="gender">Gender</label>
-      <input name="gender"
-             value="male"
-             type="radio"
-             [(ngModel)]="form.gender"> <span>Male</span>
-      <input name="gender"
-             value="female"
-             type="radio"
-             [(ngModel)]="form.gender"> <span>Female</span>
-    </section>
-    <section>
-      <label for="workStatus">Work Status</label>
-      <select name="workStatus"
-              [(ngModel)]="form.workStatus"
-              (change)="onWorkStatusChanged()">
-        <option *ngFor="let status of workStatuses"
+      <label for="autor_id">Autor</label>
+      <select name="autor_id"
+              [(ngModel)]="form.autor_id">
+        <option *ngFor="let status of autor_list"
                 [value]="status.id">
           <span>{{ status.description }}</span>
         </option>
       </select>
     </section>
-    <section *ngIf="form.workStatus.toString()==='3'; else education">
-      <label for="companyName">Company Name</label>
-      <input name="companyName"
-             type="text"
-             [(ngModel)]="form.companyName"
-             placeholder="Company name" />
-    </section>
-    <ng-template #education>
-      <section>
-        <label for="education">Education</label>
-        <input name="education"
+    <section>
+        <label for="category_id">Categoria</label>
+        <select name="category_id"
+                [(ngModel)]="form.category_id">
+          <option *ngFor="let status of category_list"
+                  [value]="status.id">
+            <span>{{ status.description }}</span>
+          </option>
+        </select>
+    </section>    
+    <section>
+        <label for="ISBN">ISBN</label>
+        <input 
+               name="ISBN"
                type="text"
-               [(ngModel)]="form.education"
-               placeholder="Education" />
-      </section>
-    </ng-template>
+               [(ngModel)]="form.ISBN"
+               placeholder="ISBN libro" />    
+      </section>   
     <input value="Save"
            type="submit"
-           (click)="saveContact()" />
+           (click)="saveBook()" />
   </form>
