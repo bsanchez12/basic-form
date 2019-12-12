@@ -1,0 +1,46 @@
+<h3>
+    Listado de Libros
+</h3>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Description</th>
+        <th>Autor</th>
+        <th>Categoria</th>
+        <th>ISBN</th>
+        <th>Fecha creacion</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data">
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.autor }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.ISBN }}</td>
+            <td>{{ item.creation_date }}</td>
+            <td>
+                <input
+                id={{item.id}}
+                type="button"
+                value="Eliminar"
+                (click)="DeleteBook(this)"/>
+            </td>
+            <td>
+                <input
+                    id={{item.id}}
+                    type="button"
+                    value="Editar"
+                    (click)="UpdateBook(this)"/>
+            </td>
+        </tr>
+    </tbody>   
+</table>
+
+<input
+    id={{item.id}}
+    type="button"
+    value="Crear"
+    (click)="CreateBook(this)"/>

@@ -46,7 +46,11 @@
                [(ngModel)]="form.ISBN"
                placeholder="ISBN libro" />    
       </section>   
-    <input value="Save"
+    <input value="Guardar"
            type="submit"
            (click)="saveBook()" />
+
+    <input value="Volver"
+        type="submit"
+        (click)="Back()" />
   </form>
